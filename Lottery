@@ -1,0 +1,30 @@
+pragma solidity >= 0.6.1;
+
+contract Lottery_Ballot
+{
+    address public beneficiary;
+    address public winner;
+
+    struct Item {
+        uint itemId;
+        uint[] itemTokens;//Αριθμός των λαχείων για κάθε αντικείμενο
+    }
+    Item [3] public items;
+
+     struct Person {
+        uint personId;
+        address addr;//Διεύθυνση του χρήστη
+    }
+
+    mapping(address => Person) tokenDetails;
+
+    Person[] public bidders;
+    address[] public winners;
+    uint winnerId;
+
+    uint laxeia = 0;//Πλήθος των λαχείων
+
+    uint public carTokens = 0;//Ο αριθμός των λαχείων για την κάλπη του αυτοκινήτου
+    uint public phoneTokens = 0;//Ο αριθμός των λαχείων για την κάλπη του κινητού
+    uint public computerTokens = 0;//Ο αριθμός των λαχείων για την κάλπη του λάπτοπ
+    uint bidderCount = 0;//O αριθμός των εγγεγραμμένων παικτών
